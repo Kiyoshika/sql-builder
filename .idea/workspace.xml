@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3f0f4c56-7593-4c71-b02f-7a7bbc78cde4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TODO.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/zweaver/sqlbuilder/FilterCondition.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/zweaver/sqlbuilder/SQLContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/zweaver/sqlbuilder/builders/FilterGroupBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/zweaver/sqlbuilder/builders/SelectBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/zweaver/sqlbuilder/enums/EDialect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/zweaver/sqlbuilder/enums/EFilterCondition.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/zweaver/sqlbuilder/enums/EFilterConjunction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/zweaver/sqlbuilder/enums/EFilterGroupType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/zweaver/sqlbuilder/exceptions/SelectBuilderException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/zweaver/sqlbuilder/util/SelectUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/SelectBuilderTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Enum" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 4
+}]]></component>
+  <component name="ProjectId" id="2oM1JSWdExg982O9azMpDCkPUfo" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.All in sql-builder.executor": "Run",
+    "JUnit.SelectBuilderTest.emptyColumns.executor": "Run",
+    "JUnit.SelectBuilderTest.executor": "Coverage",
+    "JUnit.SelectBuilderTest.filterGroup.executor": "Run",
+    "JUnit.SelectBuilderTest.filterGroupAllOf.executor": "Run",
+    "JUnit.SelectBuilderTest.filterInMultipleValuesNonQuoted.executor": "Run",
+    "JUnit.SelectBuilderTest.filterInMultipleValuesQuoted.executor": "Run",
+    "JUnit.SelectBuilderTest.filterInSingleValueNonQuoted.executor": "Run",
+    "JUnit.SelectBuilderTest.filterInSingleValueQuoted.executor": "Run",
+    "JUnit.SelectBuilderTest.filterNotInMultipleValuesNonQuoted.executor": "Run",
+    "JUnit.SelectBuilderTest.filterNotInMultipleValuesQuoted.executor": "Run",
+    "JUnit.SelectBuilderTest.filterNotInSingleValueNonQuoted.executor": "Run",
+    "JUnit.SelectBuilderTest.filterNotInSingleValueQuoted.executor": "Run",
+    "JUnit.SelectBuilderTest.filterOrConjunction.executor": "Run",
+    "JUnit.SelectBuilderTest.filterSanitizeText.executor": "Run",
+    "JUnit.SelectBuilderTest.fromAlias.executor": "Run",
+    "JUnit.SelectBuilderTest.selectAll.executor": "Run",
+    "JUnit.SelectBuilderTest.selectColumns.executor": "Run",
+    "JUnit.SelectBuilderTest.selectColumnsWithAlias.executor": "Run",
+    "JUnit.SelectBuilderTest.selectWithFilters.executor": "Run",
+    "JUnit.SelectBuilderTest.selectWithLimit.executor": "Run",
+    "JUnit.SelectBuilderTest.singleFilter.executor": "Run",
+    "Maven.sql-builder.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "/Users/zach/development/sql-builder/src/main/java/zweaver/sqlbuilder/Main.java",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected="JUnit.SelectBuilderTest">
+    <configuration name="All in sql-builder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sql-builder" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SelectBuilderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sql-builder" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SelectBuilderTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SelectBuilderTest.emptyColumns" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sql-builder" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SelectBuilderTest" />
+      <option name="METHOD_NAME" value="emptyColumns" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SelectBuilderTest.filterOrConjunction" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sql-builder" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SelectBuilderTest" />
+      <option name="METHOD_NAME" value="filterOrConjunction" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SelectBuilderTest.singleFilter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sql-builder" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SelectBuilderTest" />
+      <option name="METHOD_NAME" value="singleFilter" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.SelectBuilderTest" />
+        <item itemvalue="JUnit.SelectBuilderTest.singleFilter" />
+        <item itemvalue="JUnit.SelectBuilderTest.filterOrConjunction" />
+        <item itemvalue="JUnit.All in sql-builder" />
+        <item itemvalue="JUnit.SelectBuilderTest.emptyColumns" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-322ed176" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3f0f4c56-7593-4c71-b02f-7a7bbc78cde4" name="Changes" comment="" />
+      <created>1730664559586</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1730664559586</updated>
+      <workItem from="1730664561343" duration="20578000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/sql_builder$SelectBuilderTest.ic" NAME="SelectBuilderTest Coverage Results" MODIFIED="1730682400400" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+</project>
