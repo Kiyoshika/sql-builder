@@ -51,11 +51,20 @@ public class SelectBuilderTest {
     }
 
     @Test
-    public void selectColumns() throws SelectBuilderException {
+    public void selectColumnsIndividually() throws SelectBuilderException {
         String query = new SelectBuilder(context)
                 .select("col1")
                 .select("col2")
                 .select("col3")
+                .fromTable("sample_table")
+                .build();
+        assertEquals(query, "SELECT col1,col2,col3 FROM sample_table;");
+    }
+
+    @Test
+    public void selectColumnsFromList() throws SelectBuilderException {
+        String query = new SelectBuilder(context)
+                .select(Arrays.asList("col1", "col2", "col3"))
                 .fromTable("sample_table")
                 .build();
         assertEquals(query, "SELECT col1,col2,col3 FROM sample_table;");

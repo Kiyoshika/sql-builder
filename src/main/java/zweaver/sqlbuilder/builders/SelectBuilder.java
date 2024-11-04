@@ -46,6 +46,11 @@ public class SelectBuilder {
         return this;
     }
 
+    public SelectBuilder select(List<String> columnNames) {
+        this.columnNames.addAll(columnNames);
+        return this;
+    }
+
     public SelectBuilder selectWithAlias(String columnName, String alias) {
         this.columnNames.add(new StringBuilder().append(columnName).append(" AS ").append(alias).toString());
         return this;
