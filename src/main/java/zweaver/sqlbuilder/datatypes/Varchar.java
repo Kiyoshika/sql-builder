@@ -3,10 +3,9 @@ package zweaver.sqlbuilder.datatypes;
 import zweaver.sqlbuilder.SQLContext;
 import zweaver.sqlbuilder.util.TypeCastUtil;
 
-import java.util.Arrays;
 import java.util.List;
 
-public class Varchar implements IDataType {
+public final class Varchar implements IDataType {
     private final SQLContext context;
     private int length;
 

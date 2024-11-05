@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f0f4c56-7593-4c71-b02f-7a7bbc78cde4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/TODO.md" beforeDir="false" afterPath="$PROJECT_DIR$/TODO.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/zweaver/sqlbuilder/datatypes/Integer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/builders/select/filter/FilterTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/builders/select/typecast/IntegerCastTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/builders/select/typecast/VarcharCastTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zweaver/sqlbuilder/datatypes/Varchar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zweaver/sqlbuilder/datatypes/Varchar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/SelectBuilderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/builders/select/SelectBuilderTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +45,9 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "JUnit.All in sql-builder.executor": "Run",
+    "JUnit.FilterTest.executor": "Run",
+    "JUnit.FilterTest.multipleFilters.executor": "Run",
+    "JUnit.IntegerCastTest.executor": "Run",
     "JUnit.SelectBuilderTest.emptyColumns.executor": "Run",
     "JUnit.SelectBuilderTest.executor": "Coverage",
     "JUnit.SelectBuilderTest.filterGroup.executor": "Run",
@@ -63,6 +72,7 @@
     "JUnit.SelectBuilderTest.selectWithFilters.executor": "Run",
     "JUnit.SelectBuilderTest.selectWithLimit.executor": "Run",
     "JUnit.SelectBuilderTest.singleFilter.executor": "Run",
+    "JUnit.VarcharCastTest.executor": "Run",
     "Maven.sql-builder.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -88,41 +98,63 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SelectBuilderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FilterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sql-builder" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="SelectBuilderTest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="builders.select.filter.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="builders.select.filter" />
+      <option name="MAIN_CLASS_NAME" value="builders.select.filter.FilterTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SelectBuilderTest.selectAndCastToVarchar" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FilterTest.multipleFilters" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sql-builder" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="SelectBuilderTest" />
-      <option name="METHOD_NAME" value="selectAndCastToVarchar" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="builders.select.filter.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="builders.select.filter" />
+      <option name="MAIN_CLASS_NAME" value="builders.select.filter.FilterTest" />
+      <option name="METHOD_NAME" value="multipleFilters" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SelectBuilderTest.selectAndCastToVarcharWithLength" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="IntegerCastTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sql-builder" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="SelectBuilderTest" />
-      <option name="METHOD_NAME" value="selectAndCastToVarcharWithLength" />
-      <option name="TEST_OBJECT" value="method" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="builders.select.typecast.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="builders.select.typecast" />
+      <option name="MAIN_CLASS_NAME" value="builders.select.typecast.IntegerCastTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SelectBuilderTest.selectAndCastWithAliasToVarcharWithLength" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="VarcharCastTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sql-builder" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="SelectBuilderTest" />
-      <option name="METHOD_NAME" value="selectAndCastWithAliasToVarcharWithLength" />
-      <option name="TEST_OBJECT" value="method" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="builders.select.typecast.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="builders.select.typecast" />
+      <option name="MAIN_CLASS_NAME" value="builders.select.typecast.VarcharCastTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -130,10 +162,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in sql-builder" />
-        <item itemvalue="JUnit.SelectBuilderTest.selectAndCastWithAliasToVarcharWithLength" />
-        <item itemvalue="JUnit.SelectBuilderTest.selectAndCastToVarcharWithLength" />
-        <item itemvalue="JUnit.SelectBuilderTest.selectAndCastToVarchar" />
-        <item itemvalue="JUnit.SelectBuilderTest" />
+        <item itemvalue="JUnit.FilterTest.multipleFilters" />
+        <item itemvalue="JUnit.FilterTest" />
+        <item itemvalue="JUnit.IntegerCastTest" />
+        <item itemvalue="JUnit.VarcharCastTest" />
       </list>
     </recent_temporary>
   </component>
