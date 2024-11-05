@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="3f0f4c56-7593-4c71-b02f-7a7bbc78cde4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TODO.md" beforeDir="false" afterPath="$PROJECT_DIR$/TODO.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zweaver/sqlbuilder/builders/FilterGroupBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zweaver/sqlbuilder/builders/FilterGroupBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/zweaver/sqlbuilder/builders/SelectBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zweaver/sqlbuilder/builders/SelectBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zweaver/sqlbuilder/util/SelectUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zweaver/sqlbuilder/util/SelectUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/SelectBuilderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/SelectBuilderTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,9 +31,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2oM1JSWdExg982O9azMpDCkPUfo" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -39,11 +42,13 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "JUnit.All in sql-builder.executor": "Run",
+    "JUnit.All in sql-builder.executor": "Coverage",
+    "JUnit.PostgresConnectionBuilderTest.executor": "Coverage",
     "JUnit.SelectBuilderTest.emptyColumns.executor": "Run",
     "JUnit.SelectBuilderTest.executor": "Coverage",
     "JUnit.SelectBuilderTest.filterGroup.executor": "Run",
     "JUnit.SelectBuilderTest.filterGroupAllOf.executor": "Run",
+    "JUnit.SelectBuilderTest.filterGroupWithAliases.executor": "Run",
     "JUnit.SelectBuilderTest.filterInMultipleValuesNonQuoted.executor": "Run",
     "JUnit.SelectBuilderTest.filterInMultipleValuesQuoted.executor": "Run",
     "JUnit.SelectBuilderTest.filterInSingleValueNonQuoted.executor": "Run",
@@ -61,11 +66,12 @@
     "JUnit.SelectBuilderTest.selectWithFilters.executor": "Run",
     "JUnit.SelectBuilderTest.selectWithLimit.executor": "Run",
     "JUnit.SelectBuilderTest.singleFilter.executor": "Run",
+    "JUnit.SelectBuilderTest.singleFilterWithAlias.executor": "Run",
     "Maven.sql-builder.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "feat/filter-with-alias",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -77,7 +83,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.SelectBuilderTest">
+  <component name="RunManager" selected="JUnit.All in sql-builder">
     <configuration name="All in sql-builder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sql-builder" />
       <option name="PACKAGE_NAME" value="" />
@@ -95,11 +101,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SelectBuilderTest.filterOrConjunction" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SelectBuilderTest.filterGroupWithAliases" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sql-builder" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="SelectBuilderTest" />
-      <option name="METHOD_NAME" value="filterOrConjunction" />
+      <option name="METHOD_NAME" value="filterGroupWithAliases" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -115,11 +121,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SelectBuilderTest.singleFilter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SelectBuilderTest.singleFilterWithAlias" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sql-builder" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="SelectBuilderTest" />
-      <option name="METHOD_NAME" value="singleFilter" />
+      <option name="METHOD_NAME" value="singleFilterWithAlias" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -127,11 +133,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in sql-builder" />
+        <item itemvalue="JUnit.SelectBuilderTest.filterGroupWithAliases" />
+        <item itemvalue="JUnit.SelectBuilderTest.singleFilterWithAlias" />
         <item itemvalue="JUnit.SelectBuilderTest" />
         <item itemvalue="JUnit.SelectBuilderTest.selectColumnsFromList" />
-        <item itemvalue="JUnit.SelectBuilderTest.singleFilter" />
-        <item itemvalue="JUnit.SelectBuilderTest.filterOrConjunction" />
-        <item itemvalue="JUnit.All in sql-builder" />
       </list>
     </recent_temporary>
   </component>
@@ -158,6 +164,8 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/sql_builder$PostgresConnectionBuilderTest.ic" NAME="ConnectionBuilderTest Coverage Results" MODIFIED="1730827262824" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/sql_builder$SelectBuilderTest.ic" NAME="SelectBuilderTest Coverage Results" MODIFIED="1730682400400" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/sql_builder$All_in_sql_builder.ic" NAME="All in sql-builder Coverage Results" MODIFIED="1730827871138" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

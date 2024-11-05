@@ -14,8 +14,8 @@ import java.util.List;
 public class SelectBuilder {
     private final SQLContext context;
     private String tableName;
-    private List<String> columnNames;
-    private List<FilterCondition> filterConditions;
+    private final List<String> columnNames;
+    private final List<FilterCondition> filterConditions;
     private int limitCount;
 
     public SelectBuilder(SQLContext context) {
@@ -60,6 +60,11 @@ public class SelectBuilder {
         String filterCondition = SelectUtil.buildFilterString(columnName, condition, value, valueIsQuoted);
         this.addFilterCondition(filterCondition);
         return this;
+    }
+
+    public <T> SelectBuilder filterWithAlias(String columnName, String alias, EFilterCondition condition, T value, boolean valueIsQuoted) {
+        String newColumnName = SelectUtil.buildFilterAlias(columnName, alias);
+        return this.filter(newColumnName, condition, value, valueIsQuoted);
     }
 
     public SelectBuilder filter(FilterGroupBuilder filterGroupBuilder) {
