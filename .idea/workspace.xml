@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f0f4c56-7593-4c71-b02f-7a7bbc78cde4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/zweaver/sqlbuilder/datatypes/IDataType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/zweaver/sqlbuilder/datatypes/Varchar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/zweaver/sqlbuilder/util/TypeCastUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TODO.md" beforeDir="false" afterPath="$PROJECT_DIR$/TODO.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/zweaver/sqlbuilder/SQLContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zweaver/sqlbuilder/SQLContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/zweaver/sqlbuilder/builders/SelectBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zweaver/sqlbuilder/builders/SelectBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/SelectBuilderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/SelectBuilderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zweaver/sqlbuilder/datatypes/Varchar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zweaver/sqlbuilder/datatypes/Varchar.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,8 +18,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -63,6 +59,7 @@
     "JUnit.SelectBuilderTest.selectAll.executor": "Run",
     "JUnit.SelectBuilderTest.selectAndCastToVarchar.executor": "Run",
     "JUnit.SelectBuilderTest.selectAndCastToVarcharWithLength.executor": "Run",
+    "JUnit.SelectBuilderTest.selectAndCastWithAliasToVarcharWithLength.executor": "Run",
     "JUnit.SelectBuilderTest.selectColumns.executor": "Run",
     "JUnit.SelectBuilderTest.selectColumnsWithAlias.executor": "Run",
     "JUnit.SelectBuilderTest.selectWithFilters.executor": "Run",

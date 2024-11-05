@@ -1,6 +1,10 @@
 package zweaver.sqlbuilder.datatypes;
 
 import zweaver.sqlbuilder.SQLContext;
+import zweaver.sqlbuilder.util.TypeCastUtil;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class Varchar implements IDataType {
     private final SQLContext context;
@@ -18,38 +22,9 @@ public class Varchar implements IDataType {
 
     @Override
     public String castColumn(String columnName) {
-        return switch(this.context.getSqlDialect()) {
-            case POSTGRES, VERTICA -> {
-                if (this.length == 0)
-                    yield new StringBuilder()
-                            .append(columnName)
-                            .append("::VARCHAR")
-                            .toString();
-                else
-                    yield new StringBuilder()
-                            .append(columnName)
-                            .append("::VARCHAR(")
-                            .append(this.length)
-                            .append(')')
-                            .toString();
-            }
-            case MSSQL -> {
-                if (this.length == 0)
-                    yield new StringBuilder()
-                            .append("CAST(")
-                            .append(columnName)
-                            .append(" AS VARCHAR)")
-                            .toString();
-                else
-                    yield new StringBuilder()
-                            .append("CAST(")
-                            .append(columnName)
-                            .append(" AS VARCHAR(")
-                            .append(this.length)
-                            .append("))")
-                            .toString();
-            }
-            default -> "";
-        };
+        if (this.length == 0)
+            return TypeCastUtil.castTo(context, columnName, "VARCHAR", null);
+
+        return TypeCastUtil.castTo(context, columnName, "VARCHAR", List.of(String.valueOf(this.length)));
     }
 }
