@@ -3,7 +3,7 @@ These are general TODO items whatever come to mind in the moment so I don't forg
 * Support window/analytic functions
 * Build connection strings for the various databases
 * Add `filterWithAlias` to put alias on filter column names
-* Add column type casting (this will depend on dialect)
+* Add remaining databases for column type casting
 * Add date/time function support
 * Add subquery support and derived tables
 * Add `CTEBuilder` for common table expressions

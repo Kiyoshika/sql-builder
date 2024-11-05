@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f0f4c56-7593-4c71-b02f-7a7bbc78cde4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/zweaver/sqlbuilder/datatypes/IDataType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/zweaver/sqlbuilder/datatypes/Varchar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TODO.md" beforeDir="false" afterPath="$PROJECT_DIR$/TODO.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zweaver/sqlbuilder/SQLContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zweaver/sqlbuilder/SQLContext.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/zweaver/sqlbuilder/builders/SelectBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zweaver/sqlbuilder/builders/SelectBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/SelectBuilderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/SelectBuilderTest.java" afterDir="false" />
     </list>
@@ -17,8 +21,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -28,9 +33,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2oM1JSWdExg982O9azMpDCkPUfo" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -56,6 +61,8 @@
     "JUnit.SelectBuilderTest.filterSanitizeText.executor": "Run",
     "JUnit.SelectBuilderTest.fromAlias.executor": "Run",
     "JUnit.SelectBuilderTest.selectAll.executor": "Run",
+    "JUnit.SelectBuilderTest.selectAndCastToVarchar.executor": "Run",
+    "JUnit.SelectBuilderTest.selectAndCastToVarcharWithLength.executor": "Run",
     "JUnit.SelectBuilderTest.selectColumns.executor": "Run",
     "JUnit.SelectBuilderTest.selectColumnsWithAlias.executor": "Run",
     "JUnit.SelectBuilderTest.selectWithFilters.executor": "Run",
@@ -65,7 +72,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "feat/cast-columns",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -77,7 +84,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.SelectBuilderTest">
+  <component name="RunManager" selected="JUnit.All in sql-builder">
     <configuration name="All in sql-builder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sql-builder" />
       <option name="PACKAGE_NAME" value="" />
@@ -95,31 +102,31 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SelectBuilderTest.filterOrConjunction" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SelectBuilderTest.selectAndCastToVarchar" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sql-builder" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="SelectBuilderTest" />
-      <option name="METHOD_NAME" value="filterOrConjunction" />
+      <option name="METHOD_NAME" value="selectAndCastToVarchar" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SelectBuilderTest.selectColumnsFromList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SelectBuilderTest.selectAndCastToVarcharWithLength" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sql-builder" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="SelectBuilderTest" />
-      <option name="METHOD_NAME" value="selectColumnsFromList" />
+      <option name="METHOD_NAME" value="selectAndCastToVarcharWithLength" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SelectBuilderTest.singleFilter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SelectBuilderTest.selectAndCastWithAliasToVarcharWithLength" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sql-builder" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="SelectBuilderTest" />
-      <option name="METHOD_NAME" value="singleFilter" />
+      <option name="METHOD_NAME" value="selectAndCastWithAliasToVarcharWithLength" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -127,11 +134,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.SelectBuilderTest" />
-        <item itemvalue="JUnit.SelectBuilderTest.selectColumnsFromList" />
-        <item itemvalue="JUnit.SelectBuilderTest.singleFilter" />
-        <item itemvalue="JUnit.SelectBuilderTest.filterOrConjunction" />
         <item itemvalue="JUnit.All in sql-builder" />
+        <item itemvalue="JUnit.SelectBuilderTest.selectAndCastWithAliasToVarcharWithLength" />
+        <item itemvalue="JUnit.SelectBuilderTest.selectAndCastToVarcharWithLength" />
+        <item itemvalue="JUnit.SelectBuilderTest.selectAndCastToVarchar" />
+        <item itemvalue="JUnit.SelectBuilderTest" />
       </list>
     </recent_temporary>
   </component>
@@ -158,6 +165,8 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/sql_builder$PostgresConnectionBuilderTest.ic" NAME="ConnectionBuilderTest Coverage Results" MODIFIED="1730827262824" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/sql_builder$SelectBuilderTest.ic" NAME="SelectBuilderTest Coverage Results" MODIFIED="1730682400400" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/sql_builder$All_in_sql_builder.ic" NAME="All in sql-builder Coverage Results" MODIFIED="1730827871138" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
