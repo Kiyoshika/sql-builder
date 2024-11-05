@@ -8,10 +8,10 @@ import zweaver.sqlbuilder.exceptions.ConnectionBuilderException;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
 
-public class PostgresConnectionBuilderTest {
-    private SQLContext context;
+public class ConnectionBuilderTest {
+    private final SQLContext context;
 
-    public PostgresConnectionBuilderTest() {
+    public ConnectionBuilderTest() {
         this.context = new SQLContext(EDialect.POSTGRES);
     }
 

@@ -1,11 +1,15 @@
 package zweaver.sqlbuilder.builders.connection;
 
 import zweaver.sqlbuilder.SQLContext;
-import zweaver.sqlbuilder.builders.connection.strings.PostgresConnectionString;
-import zweaver.sqlbuilder.enums.EDialect;
 import zweaver.sqlbuilder.enums.EDriverType;
 import zweaver.sqlbuilder.exceptions.ConnectionBuilderException;
 
+/**
+ * Build a "standard" JDBC or ODBC connection string.
+ *
+ * JDBC strings are formatted as jdbc:{driver}://{host}:{port}/{databaseName}. This should work
+ * for most common databases but not others.
+ */
 public class ConnectionBuilder {
     private final SQLContext context;
     private final EDriverType driverType;
@@ -49,20 +53,55 @@ public class ConnectionBuilder {
     }
 
     public String build() {
-        String prefix = this.getConnectionPrefix();
-        String suffix = switch(this.context.getSqlDialect()) {
-            case EDialect.STANDARD -> "";
-            case EDialect.POSTGRES -> new PostgresConnectionString(driverType, hostName, port, databaseName).toString();
-            default -> "";
+        return switch(this.driverType) {
+            case JDBC -> this.toJDBCString();
+            case ODBC -> this.toODBCString();
         };
-
-        return new StringBuilder().append(prefix).append(suffix).append(';').toString();
     }
 
-    private String getConnectionPrefix() {
-        return switch (this.driverType) {
-            case EDriverType.JDBC -> "jdbc:";
-            case EDriverType.ODBC -> "odbc:";
+    private String toJDBCString() {
+        StringBuilder connectionBuilder = new StringBuilder();
+        connectionBuilder.append("jdbc:");
+        String driverName = this.getDriverName();
+        this.port = this.port == -1 ? this.getDefaultPort() : this.port;
+        connectionBuilder
+                .append(driverName)
+                .append("://")
+                .append(this.hostName)
+                .append(':')
+                .append(this.port);
+        if (!this.databaseName.isEmpty())
+            connectionBuilder.append('/').append(this.databaseName);
+        connectionBuilder.append(';');
+
+        return connectionBuilder.toString();
+    }
+
+    private String getDriverName() {
+        return switch (this.context.getSqlDialect()) {
+            case STANDARD -> "";
+            case POSTGRES -> "postgresql";
+            case MYSQL -> "mysql";
+            case DB2 -> "db2";
+            case MSSQL -> "microsoft:sqlserver";
+            case MARIADB -> "mariadb";
+            case VERTICA -> "vertica";
         };
+    }
+
+    private int getDefaultPort() {
+        return switch (this.context.getSqlDialect()) {
+            case STANDARD -> 0;
+            case POSTGRES -> 5432;
+            case MYSQL -> 3306;
+            case DB2 -> 50000;
+            case MSSQL -> 1433;
+            case MARIADB -> 3306;
+            case VERTICA -> 5433;
+        };
+    }
+
+    private String toODBCString() {
+        return "";
     }
 }
