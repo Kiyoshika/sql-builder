@@ -6,5 +6,6 @@ public enum EDialect {
     VERTICA,
     MSSQL,
     MYSQL,
-    SQLITE
+    DB2,
+    MARIADB
 }

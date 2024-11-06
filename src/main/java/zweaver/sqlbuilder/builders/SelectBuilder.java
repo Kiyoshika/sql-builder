@@ -11,11 +11,11 @@ import zweaver.sqlbuilder.util.SelectUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SelectBuilder {
+public final class SelectBuilder {
     private final SQLContext context;
     private String tableName;
-    private List<String> columnNames;
-    private List<FilterCondition> filterConditions;
+    private final List<String> columnNames;
+    private final List<FilterCondition> filterConditions;
     private int limitCount;
 
     public SelectBuilder(SQLContext context) {
