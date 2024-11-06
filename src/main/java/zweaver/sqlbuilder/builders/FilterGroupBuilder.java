@@ -21,6 +21,11 @@ public final class FilterGroupBuilder {
         return this;
     }
 
+    public <T> FilterGroupBuilder addFilterWithAlias(String columnName, String alias, EFilterCondition condition, T value, boolean valueIsQuoted) {
+        String newColumnName = SelectUtil.buildFilterAlias(columnName, alias);
+        return this.addFilter(newColumnName, condition, value, valueIsQuoted);
+    }
+
     public FilterGroupBuilder allOf() {
         this.groupType = EFilterGroupType.ALL;
         return this;

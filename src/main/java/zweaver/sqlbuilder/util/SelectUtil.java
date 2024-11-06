@@ -89,4 +89,8 @@ public class SelectUtil {
 
         return filterBuilder.toString();
     }
+
+    public static String buildFilterAlias(String columnName, String alias) {
+        return new StringBuilder().append(alias).append('.').append(columnName).toString();
+    }
 }

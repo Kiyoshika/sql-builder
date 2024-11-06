@@ -92,6 +92,16 @@ public class SelectBuilderTest {
     }
 
     @Test
+    public void singleFilterWithAlias() throws SelectBuilderException {
+        String query = new SelectBuilder(context)
+                .selectAll()
+                .fromTable("sample_table")
+                .filterWithAlias("col1", "c1", EFilterCondition.EQUAL, 10, false)
+                .build();
+        assertEquals(query, "SELECT * FROM sample_table WHERE c1.col1 = 10;");
+    }
+
+    @Test
     public void selectWithFilters() throws SelectBuilderException {
         String query = new SelectBuilder(context)
                 .selectAll()
@@ -169,6 +179,20 @@ public class SelectBuilderTest {
                         .anyOf())
                 .build();
         assertEquals(query, "SELECT * FROM sample_table WHERE col1 = 10 AND (col2 = 20 OR col3 < 30 OR col4 LIKE 'text%');");
+    }
+
+    @Test
+    public void filterGroupWithAliases() throws SelectBuilderException {
+        String query = new SelectBuilder(context)
+                .selectAll()
+                .fromTable("sample_table")
+                .filter(new FilterGroupBuilder()
+                        .addFilterWithAlias("col1", "a1", EFilterCondition.EQUAL, 10, false)
+                        .addFilterWithAlias("col2", "a2", EFilterCondition.EQUAL, 20, false)
+                        .addFilterWithAlias("col3", "a3", EFilterCondition.EQUAL, 30, false)
+                        .allOf())
+                .build();
+        assertEquals(query, "SELECT * FROM sample_table WHERE (a1.col1 = 10 AND a2.col2 = 20 AND a3.col3 = 30);");
     }
 
     @Test

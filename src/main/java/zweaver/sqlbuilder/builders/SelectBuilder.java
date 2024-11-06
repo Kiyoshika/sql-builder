@@ -62,6 +62,11 @@ public final class SelectBuilder {
         return this;
     }
 
+    public <T> SelectBuilder filterWithAlias(String columnName, String alias, EFilterCondition condition, T value, boolean valueIsQuoted) {
+        String newColumnName = SelectUtil.buildFilterAlias(columnName, alias);
+        return this.filter(newColumnName, condition, value, valueIsQuoted);
+    }
+
     public SelectBuilder filter(FilterGroupBuilder filterGroupBuilder) {
         StringBuilder filterBuilder = new StringBuilder();
         filterBuilder.append('(');

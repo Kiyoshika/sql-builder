@@ -6,6 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="3f0f4c56-7593-4c71-b02f-7a7bbc78cde4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TODO.md" beforeDir="false" afterPath="$PROJECT_DIR$/TODO.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zweaver/sqlbuilder/builders/FilterGroupBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zweaver/sqlbuilder/builders/FilterGroupBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zweaver/sqlbuilder/builders/SelectBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zweaver/sqlbuilder/builders/SelectBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zweaver/sqlbuilder/util/SelectUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zweaver/sqlbuilder/util/SelectUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/SelectBuilderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/SelectBuilderTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/zweaver/sqlbuilder/builders/connection/ConnectionBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zweaver/sqlbuilder/builders/connection/ConnectionBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/zweaver/sqlbuilder/builders/connection/strings/BaseConnectionString.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/zweaver/sqlbuilder/builders/connection/strings/PostgresConnectionString.java" beforeDir="false" />
@@ -34,9 +39,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2oM1JSWdExg982O9azMpDCkPUfo" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -45,6 +50,8 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JUnit.All in sql-builder.executor": "Coverage",
+    "JUnit.PostgresConnectionBuilderTest.executor": "Coverage",
     "JUnit.All in sql-builder.executor": "Run",
     "JUnit.PostgresConnectionBuilderTest.customAll.executor": "Run",
     "JUnit.PostgresConnectionBuilderTest.customDatabase.executor": "Run",
@@ -59,6 +66,7 @@
     "JUnit.SelectBuilderTest.executor": "Run",
     "JUnit.SelectBuilderTest.filterGroup.executor": "Run",
     "JUnit.SelectBuilderTest.filterGroupAllOf.executor": "Run",
+    "JUnit.SelectBuilderTest.filterGroupWithAliases.executor": "Run",
     "JUnit.SelectBuilderTest.filterInMultipleValuesNonQuoted.executor": "Run",
     "JUnit.SelectBuilderTest.filterInMultipleValuesQuoted.executor": "Run",
     "JUnit.SelectBuilderTest.filterInSingleValueNonQuoted.executor": "Run",
@@ -77,10 +85,12 @@
     "JUnit.SelectBuilderTest.selectWithFilters.executor": "Run",
     "JUnit.SelectBuilderTest.selectWithLimit.executor": "Run",
     "JUnit.SelectBuilderTest.singleFilter.executor": "Run",
+    "JUnit.SelectBuilderTest.singleFilterWithAlias.executor": "Run",
     "Maven.sql-builder.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "feat/filter-with-alias",
     "git-widget-placeholder": "feat/connection-string",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
@@ -93,6 +103,8 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager" selected="JUnit.All in sql-builder">
+    <configuration name="All in sql-builder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
   <component name="RunManager" selected="JUnit.PostgresConnectionBuilderTest">
     <configuration name="ConnectionBuilderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sql-builder" />
@@ -113,6 +125,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SelectBuilderTest.filterGroupWithAliases" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sql-builder" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SelectBuilderTest" />
+      <option name="METHOD_NAME" value="filterGroupWithAliases" />
     <configuration name="ConnectionBuilderTest.setInvalidDatabaseName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sql-builder" />
       <option name="PACKAGE_NAME" value="" />
@@ -133,6 +150,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SelectBuilderTest.singleFilterWithAlias" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sql-builder" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SelectBuilderTest" />
+      <option name="METHOD_NAME" value="singleFilterWithAlias" />
     <configuration name="ConnectionBuilderTest.setInvalidPort" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sql-builder" />
       <option name="PACKAGE_NAME" value="" />
@@ -145,6 +167,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in sql-builder" />
+        <item itemvalue="JUnit.SelectBuilderTest.filterGroupWithAliases" />
+        <item itemvalue="JUnit.SelectBuilderTest.singleFilterWithAlias" />
+        <item itemvalue="JUnit.SelectBuilderTest" />
+        <item itemvalue="JUnit.SelectBuilderTest.selectColumnsFromList" />
         <item itemvalue="JUnit.PostgresConnectionBuilderTest" />
         <item itemvalue="JUnit.PostgresConnectionBuilderTest.setInvalidDatabaseName" />
         <item itemvalue="JUnit.PostgresConnectionBuilderTest.setInvalidPort" />
@@ -176,7 +203,9 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/sql_builder$PostgresConnectionBuilderTest.ic" NAME="ConnectionBuilderTest Coverage Results" MODIFIED="1730827262824" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/sql_builder$PostgresConnectionBuilderTest.ic" NAME="ConnectionBuilderTest Coverage Results" MODIFIED="1730821632036" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/sql_builder$SelectBuilderTest.ic" NAME="SelectBuilderTest Coverage Results" MODIFIED="1730682400400" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/sql_builder$All_in_sql_builder.ic" NAME="All in sql-builder Coverage Results" MODIFIED="1730827871138" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
