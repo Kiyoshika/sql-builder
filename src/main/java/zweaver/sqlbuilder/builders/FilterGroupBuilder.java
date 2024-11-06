@@ -7,7 +7,7 @@ import zweaver.sqlbuilder.util.SelectUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FilterGroupBuilder {
+public final class FilterGroupBuilder {
     private final List<String> filterConditions;
     private EFilterGroupType groupType;
 

@@ -2,8 +2,8 @@ package zweaver.sqlbuilder;
 
 import zweaver.sqlbuilder.enums.EFilterConjunction;
 
-public class FilterCondition {
-    private String condition;
+public final class FilterCondition {
+    private final String condition;
     private EFilterConjunction conjunction;
 
     public FilterCondition(String condition, EFilterConjunction conjunction) {

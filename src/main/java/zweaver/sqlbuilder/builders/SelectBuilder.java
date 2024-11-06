@@ -11,7 +11,7 @@ import zweaver.sqlbuilder.util.SelectUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SelectBuilder {
+public final class SelectBuilder {
     private final SQLContext context;
     private String tableName;
     private final List<String> columnNames;
