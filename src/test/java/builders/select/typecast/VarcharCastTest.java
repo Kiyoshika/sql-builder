@@ -16,7 +16,7 @@ public class VarcharCastTest {
         String query = new SelectBuilder(ctx)
                 .selectAndCast("col1", new Varchar(ctx))
                 .fromTable("sample_table")
-                .build();
+                .build(true);
         assertEquals(query, "SELECT col1::VARCHAR FROM sample_table;");
 
         // need to rebuild the query due to different context
@@ -24,7 +24,7 @@ public class VarcharCastTest {
         query = new SelectBuilder(ctx)
                 .selectAndCast("col1", new Varchar(ctx))
                 .fromTable("sample_table")
-                .build();
+                .build(true);
         assertEquals(query, "SELECT CAST(col1 AS VARCHAR) FROM sample_table;");
     }
 
@@ -34,7 +34,7 @@ public class VarcharCastTest {
         String query = new SelectBuilder(ctx)
                 .selectAndCastWithAlias("col1", "c1", new Varchar(ctx))
                 .fromTable("sample_table")
-                .build();
+                .build(true);
         assertEquals(query, "SELECT col1::VARCHAR AS c1 FROM sample_table;");
 
         // need to rebuild the query due to different context
@@ -42,7 +42,7 @@ public class VarcharCastTest {
         query = new SelectBuilder(ctx)
                 .selectAndCastWithAlias("col1", "c1", new Varchar(ctx))
                 .fromTable("sample_table")
-                .build();
+                .build(true);
         assertEquals(query, "SELECT CAST(col1 AS VARCHAR) AS c1 FROM sample_table;");
     }
 
@@ -52,7 +52,7 @@ public class VarcharCastTest {
         String query = new SelectBuilder(ctx)
                 .selectAndCast("col1", new Varchar(ctx, 100))
                 .fromTable("sample_table")
-                .build();
+                .build(true);
         assertEquals(query, "SELECT col1::VARCHAR(100) FROM sample_table;");
 
         // need to rebuild the query due to different context
@@ -60,7 +60,7 @@ public class VarcharCastTest {
         query = new SelectBuilder(ctx)
                 .selectAndCast("col1", new Varchar(ctx, 100))
                 .fromTable("sample_table")
-                .build();
+                .build(true);
         assertEquals(query, "SELECT CAST(col1 AS VARCHAR(100)) FROM sample_table;");
     }
 
@@ -70,7 +70,7 @@ public class VarcharCastTest {
         String query = new SelectBuilder(ctx)
                 .selectAndCastWithAlias("col1", "c1", new Varchar(ctx, 100))
                 .fromTable("sample_table")
-                .build();
+                .build(true);
         assertEquals(query, "SELECT col1::VARCHAR(100) AS c1 FROM sample_table;");
 
         // need to rebuild the query due to different context
@@ -78,7 +78,7 @@ public class VarcharCastTest {
         query = new SelectBuilder(ctx)
                 .selectAndCastWithAlias("col1", "c1", new Varchar(ctx, 100))
                 .fromTable("sample_table")
-                .build();
+                .build(true);
         assertEquals(query, "SELECT CAST(col1 AS VARCHAR(100)) AS c1 FROM sample_table;");
     }
 }

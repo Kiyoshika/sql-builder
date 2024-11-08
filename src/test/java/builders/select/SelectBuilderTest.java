@@ -1,10 +1,7 @@
 package builders.select;
 
 import org.junit.Test;
-import zweaver.sqlbuilder.builders.FilterGroupBuilder;
-import zweaver.sqlbuilder.datatypes.Varchar;
 import zweaver.sqlbuilder.enums.EDialect;
-import zweaver.sqlbuilder.enums.EFilterCondition;
 import zweaver.sqlbuilder.exceptions.SelectBuilderException;
 import zweaver.sqlbuilder.SQLContext;
 import zweaver.sqlbuilder.builders.SelectBuilder;
@@ -22,7 +19,7 @@ public class SelectBuilderTest {
         assertThrows(SelectBuilderException.class, () -> {
            String query = new SelectBuilder(context)
                    .selectAll()
-                   .build();
+                   .build(false);
         });
     }
 
@@ -31,17 +28,26 @@ public class SelectBuilderTest {
         assertThrows(SelectBuilderException.class, () -> {
            String query = new SelectBuilder(context)
                    .fromTable("sample_table")
-                   .build();
+                   .build(false);
         });
     }
 
     @Test
-    public void selectAll() throws SelectBuilderException {
+    public void selectAllAsFinalStatement() throws SelectBuilderException {
         String query = new SelectBuilder(context)
                 .selectAll()
                 .fromTable("sample_table")
-                .build();
+                .build(true);
         assertEquals(query, "SELECT * FROM sample_table;");
+    }
+
+    @Test
+    public void selectAllNotFinalStatement() throws SelectBuilderException {
+        String query = new SelectBuilder(context)
+                .selectAll()
+                .fromTable("sample_table")
+                .build(false);
+        assertEquals(query, "SELECT * FROM sample_table");
     }
 
     @Test
@@ -49,7 +55,7 @@ public class SelectBuilderTest {
         String query = new SelectBuilder(context)
                 .selectAll()
                 .fromTableWithAlias("sample_table", "alias")
-                .build();
+                .build(true);
         assertEquals(query, "SELECT * FROM sample_table AS alias;");
     }
 
@@ -60,7 +66,7 @@ public class SelectBuilderTest {
                 .select("col2")
                 .select("col3")
                 .fromTable("sample_table")
-                .build();
+                .build(true);
         assertEquals(query, "SELECT col1,col2,col3 FROM sample_table;");
     }
 
@@ -69,7 +75,7 @@ public class SelectBuilderTest {
         String query = new SelectBuilder(context)
                 .select(Arrays.asList("col1", "col2", "col3"))
                 .fromTable("sample_table")
-                .build();
+                .build(true);
         assertEquals(query, "SELECT col1,col2,col3 FROM sample_table;");
     }
 
@@ -80,7 +86,7 @@ public class SelectBuilderTest {
                 .selectWithAlias("col2", "alias2")
                 .selectWithAlias("col3", "alias3")
                 .fromTable("sample_table")
-                .build();
+                .build(true);
         assertEquals(query, "SELECT col1 AS alias1,col2 AS alias2,col3 AS alias3 FROM sample_table;");
     }
 
@@ -90,7 +96,7 @@ public class SelectBuilderTest {
                 .selectAll()
                 .fromTable("sample_table")
                 .limit(100)
-                .build();
+                .build(true);
         assertEquals(query, "SELECT * FROM sample_table LIMIT 100;");
     }
 }
