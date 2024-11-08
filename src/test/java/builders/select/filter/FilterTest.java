@@ -1,84 +1,102 @@
+package builders.select.filter;
+
 import org.junit.Test;
+import zweaver.sqlbuilder.SQLContext;
 import zweaver.sqlbuilder.builders.FilterGroupBuilder;
+import zweaver.sqlbuilder.builders.SelectBuilder;
 import zweaver.sqlbuilder.enums.EDialect;
 import zweaver.sqlbuilder.enums.EFilterCondition;
 import zweaver.sqlbuilder.exceptions.SelectBuilderException;
-import zweaver.sqlbuilder.SQLContext;
-import zweaver.sqlbuilder.builders.SelectBuilder;
 
 import java.util.Arrays;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThrows;
 
-public class SelectBuilderTest {
-    private static final SQLContext context = new SQLContext(EDialect.STANDARD);
+public class FilterTest {
+    private final SQLContext context;
 
-    @Test
-    public void missingTable() {
-        assertThrows(SelectBuilderException.class, () -> {
-           String query = new SelectBuilder(context)
-                   .selectAll()
-                   .build();
-        });
+    public FilterTest() {
+        this.context = new SQLContext(EDialect.STANDARD);
     }
 
     @Test
-    public void emptyColumns() {
-        assertThrows(SelectBuilderException.class, () -> {
-           String query = new SelectBuilder(context)
-                   .fromTable("sample_table")
-                   .build();
-        });
-    }
-
-    @Test
-    public void selectAll() throws SelectBuilderException {
+    public void filterInSingleValueNonQuoted() throws SelectBuilderException {
         String query = new SelectBuilder(context)
                 .selectAll()
                 .fromTable("sample_table")
+                .filter("col1", EFilterCondition.IN, 10, false)
                 .build();
-        assertEquals(query, "SELECT * FROM sample_table;");
+        assertEquals(query, "SELECT * FROM sample_table WHERE col1 IN (10);");
     }
 
     @Test
-    public void fromAlias() throws SelectBuilderException {
+    public void filterInSingleValueQuoted() throws SelectBuilderException {
         String query = new SelectBuilder(context)
                 .selectAll()
-                .fromTableWithAlias("sample_table", "alias")
+                .fromTable("sample_table")
+                .filter("col1", EFilterCondition.IN, 10, true)
                 .build();
-        assertEquals(query, "SELECT * FROM sample_table AS alias;");
+        assertEquals(query, "SELECT * FROM sample_table WHERE col1 IN ('10');");
     }
 
     @Test
-    public void selectColumnsIndividually() throws SelectBuilderException {
+    public void filterNotInSingleValueNonQuoted() throws SelectBuilderException {
         String query = new SelectBuilder(context)
-                .select("col1")
-                .select("col2")
-                .select("col3")
+                .selectAll()
                 .fromTable("sample_table")
+                .filter("col1", EFilterCondition.NOT_IN, 10, false)
                 .build();
-        assertEquals(query, "SELECT col1,col2,col3 FROM sample_table;");
+        assertEquals(query, "SELECT * FROM sample_table WHERE col1 NOT IN (10);");
     }
 
     @Test
-    public void selectColumnsFromList() throws SelectBuilderException {
+    public void filterNotInSingleValueQuoted() throws SelectBuilderException {
         String query = new SelectBuilder(context)
-                .select(Arrays.asList("col1", "col2", "col3"))
+                .selectAll()
                 .fromTable("sample_table")
+                .filter("col1", EFilterCondition.NOT_IN, 10, true)
                 .build();
-        assertEquals(query, "SELECT col1,col2,col3 FROM sample_table;");
+        assertEquals(query, "SELECT * FROM sample_table WHERE col1 NOT IN ('10');");
     }
 
     @Test
-    public void selectColumnsWithAlias() throws SelectBuilderException {
+    public void filterInMultipleValuesNonQuoted() throws SelectBuilderException {
         String query = new SelectBuilder(context)
-                .selectWithAlias("col1", "alias1")
-                .selectWithAlias("col2", "alias2")
-                .selectWithAlias("col3", "alias3")
+                .selectAll()
                 .fromTable("sample_table")
+                .filter("col1", EFilterCondition.IN, Arrays.asList(10, 20, 30), false)
                 .build();
-        assertEquals(query, "SELECT col1 AS alias1,col2 AS alias2,col3 AS alias3 FROM sample_table;");
+        assertEquals(query, "SELECT * FROM sample_table WHERE col1 IN (10,20,30);");
+    }
+
+    @Test
+    public void filterInMultipleValuesQuoted() throws SelectBuilderException {
+        String query = new SelectBuilder(context)
+                .selectAll()
+                .fromTable("sample_table")
+                .filter("col1", EFilterCondition.IN, Arrays.asList(10, 20, 30), true)
+                .build();
+        assertEquals(query, "SELECT * FROM sample_table WHERE col1 IN ('10','20','30');");
+    }
+
+    @Test
+    public void filterNotInMultipleValuesNonQuoted() throws SelectBuilderException {
+        String query = new SelectBuilder(context)
+                .selectAll()
+                .fromTable("sample_table")
+                .filter("col1", EFilterCondition.NOT_IN, Arrays.asList(10, 20, 30), false)
+                .build();
+        assertEquals(query, "SELECT * FROM sample_table WHERE col1 NOT IN (10,20,30);");
+    }
+
+    @Test
+    public void filterNotInMultipleValuesQuoted() throws SelectBuilderException {
+        String query = new SelectBuilder(context)
+                .selectAll()
+                .fromTable("sample_table")
+                .filter("col1", EFilterCondition.NOT_IN, Arrays.asList(10, 20, 30), true)
+                .build();
+        assertEquals(query, "SELECT * FROM sample_table WHERE col1 NOT IN ('10','20','30');");
     }
 
     @Test
@@ -208,95 +226,5 @@ public class SelectBuilderTest {
                         .allOf())
                 .build();
         assertEquals(query, "SELECT * FROM sample_table WHERE col1 = 10 AND (col2 = 20 AND col3 < 30 AND col4 LIKE 'text%');");
-    }
-
-    @Test
-    public void selectWithLimit() throws SelectBuilderException {
-        String query = new SelectBuilder(context)
-                .selectAll()
-                .fromTable("sample_table")
-                .limit(100)
-                .build();
-        assertEquals(query, "SELECT * FROM sample_table LIMIT 100;");
-    }
-
-    @Test
-    public void filterInSingleValueNonQuoted() throws SelectBuilderException {
-        String query = new SelectBuilder(context)
-                .selectAll()
-                .fromTable("sample_table")
-                .filter("col1", EFilterCondition.IN, 10, false)
-                .build();
-        assertEquals(query, "SELECT * FROM sample_table WHERE col1 IN (10);");
-    }
-
-    @Test
-    public void filterInSingleValueQuoted() throws SelectBuilderException {
-        String query = new SelectBuilder(context)
-                .selectAll()
-                .fromTable("sample_table")
-                .filter("col1", EFilterCondition.IN, 10, true)
-                .build();
-        assertEquals(query, "SELECT * FROM sample_table WHERE col1 IN ('10');");
-    }
-
-    @Test
-    public void filterNotInSingleValueNonQuoted() throws SelectBuilderException {
-        String query = new SelectBuilder(context)
-                .selectAll()
-                .fromTable("sample_table")
-                .filter("col1", EFilterCondition.NOT_IN, 10, false)
-                .build();
-        assertEquals(query, "SELECT * FROM sample_table WHERE col1 NOT IN (10);");
-    }
-
-    @Test
-    public void filterNotInSingleValueQuoted() throws SelectBuilderException {
-        String query = new SelectBuilder(context)
-                .selectAll()
-                .fromTable("sample_table")
-                .filter("col1", EFilterCondition.NOT_IN, 10, true)
-                .build();
-        assertEquals(query, "SELECT * FROM sample_table WHERE col1 NOT IN ('10');");
-    }
-
-    @Test
-    public void filterInMultipleValuesNonQuoted() throws SelectBuilderException {
-        String query = new SelectBuilder(context)
-                .selectAll()
-                .fromTable("sample_table")
-                .filter("col1", EFilterCondition.IN, Arrays.asList(10, 20, 30), false)
-                .build();
-        assertEquals(query, "SELECT * FROM sample_table WHERE col1 IN (10,20,30);");
-    }
-
-    @Test
-    public void filterInMultipleValuesQuoted() throws SelectBuilderException {
-        String query = new SelectBuilder(context)
-                .selectAll()
-                .fromTable("sample_table")
-                .filter("col1", EFilterCondition.IN, Arrays.asList(10, 20, 30), true)
-                .build();
-        assertEquals(query, "SELECT * FROM sample_table WHERE col1 IN ('10','20','30');");
-    }
-
-    @Test
-    public void filterNotInMultipleValuesNonQuoted() throws SelectBuilderException {
-        String query = new SelectBuilder(context)
-                .selectAll()
-                .fromTable("sample_table")
-                .filter("col1", EFilterCondition.NOT_IN, Arrays.asList(10, 20, 30), false)
-                .build();
-        assertEquals(query, "SELECT * FROM sample_table WHERE col1 NOT IN (10,20,30);");
-    }
-
-    @Test
-    public void filterNotInMultipleValuesQuoted() throws SelectBuilderException {
-        String query = new SelectBuilder(context)
-                .selectAll()
-                .fromTable("sample_table")
-                .filter("col1", EFilterCondition.NOT_IN, Arrays.asList(10, 20, 30), true)
-                .build();
-        assertEquals(query, "SELECT * FROM sample_table WHERE col1 NOT IN ('10','20','30');");
     }
 }

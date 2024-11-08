@@ -2,6 +2,7 @@ package zweaver.sqlbuilder.builders;
 
 import zweaver.sqlbuilder.FilterCondition;
 import zweaver.sqlbuilder.SQLContext;
+import zweaver.sqlbuilder.datatypes.IDataType;
 import zweaver.sqlbuilder.enums.EFilterCondition;
 import zweaver.sqlbuilder.enums.EFilterConjunction;
 import zweaver.sqlbuilder.enums.EFilterGroupType;
@@ -54,6 +55,16 @@ public final class SelectBuilder {
     public SelectBuilder selectWithAlias(String columnName, String alias) {
         this.columnNames.add(new StringBuilder().append(columnName).append(" AS ").append(alias).toString());
         return this;
+    }
+
+    public SelectBuilder selectAndCast(String column, IDataType toDataType) {
+        String newColumnName = toDataType.castColumn(column);
+        return this.select(newColumnName);
+    }
+
+    public SelectBuilder selectAndCastWithAlias(String column, String alias, IDataType toDataType) {
+        String newColumnName = toDataType.castColumn(column);
+        return this.selectWithAlias(newColumnName, alias);
     }
 
     public <T> SelectBuilder filter(String columnName, EFilterCondition condition, T value, boolean valueIsQuoted) {
