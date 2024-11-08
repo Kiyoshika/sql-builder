@@ -7,8 +7,8 @@ import zweaver.sqlbuilder.util.SelectUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FilterGroupBuilder {
-    private List<String> filterConditions;
+public final class FilterGroupBuilder {
+    private final List<String> filterConditions;
     private EFilterGroupType groupType;
 
     public FilterGroupBuilder() {
@@ -19,6 +19,11 @@ public class FilterGroupBuilder {
     public <T> FilterGroupBuilder addFilter(String columnName, EFilterCondition condition, T value, boolean valueIsQuoted) {
         this.filterConditions.add(SelectUtil.buildFilterString(columnName, condition, value, valueIsQuoted));
         return this;
+    }
+
+    public <T> FilterGroupBuilder addFilterWithAlias(String columnName, String alias, EFilterCondition condition, T value, boolean valueIsQuoted) {
+        String newColumnName = SelectUtil.buildFilterAlias(columnName, alias);
+        return this.addFilter(newColumnName, condition, value, valueIsQuoted);
     }
 
     public FilterGroupBuilder allOf() {

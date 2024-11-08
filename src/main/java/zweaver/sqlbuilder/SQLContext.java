@@ -1,8 +1,9 @@
 package zweaver.sqlbuilder;
 
 import zweaver.sqlbuilder.enums.EDialect;
+import zweaver.sqlbuilder.enums.EDriverType;
 
-public class SQLContext {
+public final class SQLContext {
     private EDialect sqlDialect;
 
     public SQLContext(EDialect sqlDialect) {

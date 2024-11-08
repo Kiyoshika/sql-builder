@@ -12,7 +12,7 @@ import zweaver.sqlbuilder.util.SelectUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SelectBuilder {
+public final class SelectBuilder {
     private final SQLContext context;
     private String tableName;
     private final List<String> columnNames;
@@ -71,6 +71,11 @@ public class SelectBuilder {
         String filterCondition = SelectUtil.buildFilterString(columnName, condition, value, valueIsQuoted);
         this.addFilterCondition(filterCondition);
         return this;
+    }
+
+    public <T> SelectBuilder filterWithAlias(String columnName, String alias, EFilterCondition condition, T value, boolean valueIsQuoted) {
+        String newColumnName = SelectUtil.buildFilterAlias(columnName, alias);
+        return this.filter(newColumnName, condition, value, valueIsQuoted);
     }
 
     public SelectBuilder filter(FilterGroupBuilder filterGroupBuilder) {
