@@ -43,7 +43,7 @@ public class TypeCastUtil {
                     .append(argumentList)
                     .append(')')
                     .toString();
-            case MSSQL -> new StringBuilder()
+            case MSSQL, MYSQL, SQLITE, STANDARD -> new StringBuilder()
                     .append("CAST(")
                     .append(columnName)
                     .append(" AS ")
@@ -52,8 +52,6 @@ public class TypeCastUtil {
                     .append(argumentList)
                     .append("))")
                     .toString();
-            // TODO: implement for other dialects
-            default -> "";
         };
     }
 
