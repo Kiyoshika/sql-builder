@@ -5,7 +5,6 @@ These are general TODO items whatever come to mind in the moment so I don't forg
 * Add aggregate function support
 * Add subquery support and derived tables
 * Add `StatementAppender` to append individual statements together (e.g., multiple create statements, temp tables, etc.)
-* Add `UnionBuilder` for union or union all
 * Add `CreateTableBuilder` (also support temp tables)
 * Add `AlterTableBuilder`
 * Add `DeleteBuilder`
