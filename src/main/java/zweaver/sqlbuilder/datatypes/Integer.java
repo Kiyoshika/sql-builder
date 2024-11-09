@@ -11,7 +11,15 @@ public final class Integer implements IDataType {
     }
 
     @Override
+    public boolean isTextType() { return false; }
+
+    @Override
     public String castColumn(String columnName) {
         return TypeCastUtil.castTo(this.context, columnName, "CUSTOM", null);
+    }
+
+    @Override
+    public String toString() {
+        return "INTEGER";
     }
 }

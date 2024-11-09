@@ -20,10 +20,21 @@ public final class Varchar implements IDataType {
     }
 
     @Override
+    public boolean isTextType() { return true; }
+
+    @Override
     public String castColumn(String columnName) {
         if (this.length == 0)
             return TypeCastUtil.castTo(context, columnName, "VARCHAR", null);
 
         return TypeCastUtil.castTo(context, columnName, "VARCHAR", List.of(String.valueOf(this.length)));
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder typeName = new StringBuilder().append("VARCHAR");
+        if (this.length > 0)
+            typeName.append('(').append(this.length).append(')');
+        return typeName.toString();
     }
 }
