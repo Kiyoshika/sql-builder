@@ -25,7 +25,7 @@ public class FilterTest {
                 .selectAll()
                 .fromTable("sample_table")
                 .filter("col1", EFilterCondition.IN, 10, false)
-                .build();
+                .build(true);
         assertEquals(query, "SELECT * FROM sample_table WHERE col1 IN (10);");
     }
 
@@ -35,7 +35,7 @@ public class FilterTest {
                 .selectAll()
                 .fromTable("sample_table")
                 .filter("col1", EFilterCondition.IN, 10, true)
-                .build();
+                .build(true);
         assertEquals(query, "SELECT * FROM sample_table WHERE col1 IN ('10');");
     }
 
@@ -45,7 +45,7 @@ public class FilterTest {
                 .selectAll()
                 .fromTable("sample_table")
                 .filter("col1", EFilterCondition.NOT_IN, 10, false)
-                .build();
+                .build(true);
         assertEquals(query, "SELECT * FROM sample_table WHERE col1 NOT IN (10);");
     }
 
@@ -55,7 +55,7 @@ public class FilterTest {
                 .selectAll()
                 .fromTable("sample_table")
                 .filter("col1", EFilterCondition.NOT_IN, 10, true)
-                .build();
+                .build(true);
         assertEquals(query, "SELECT * FROM sample_table WHERE col1 NOT IN ('10');");
     }
 
@@ -65,7 +65,7 @@ public class FilterTest {
                 .selectAll()
                 .fromTable("sample_table")
                 .filter("col1", EFilterCondition.IN, Arrays.asList(10, 20, 30), false)
-                .build();
+                .build(true);
         assertEquals(query, "SELECT * FROM sample_table WHERE col1 IN (10,20,30);");
     }
 
@@ -75,7 +75,7 @@ public class FilterTest {
                 .selectAll()
                 .fromTable("sample_table")
                 .filter("col1", EFilterCondition.IN, Arrays.asList(10, 20, 30), true)
-                .build();
+                .build(true);
         assertEquals(query, "SELECT * FROM sample_table WHERE col1 IN ('10','20','30');");
     }
 
@@ -85,7 +85,7 @@ public class FilterTest {
                 .selectAll()
                 .fromTable("sample_table")
                 .filter("col1", EFilterCondition.NOT_IN, Arrays.asList(10, 20, 30), false)
-                .build();
+                .build(true);
         assertEquals(query, "SELECT * FROM sample_table WHERE col1 NOT IN (10,20,30);");
     }
 
@@ -95,7 +95,7 @@ public class FilterTest {
                 .selectAll()
                 .fromTable("sample_table")
                 .filter("col1", EFilterCondition.NOT_IN, Arrays.asList(10, 20, 30), true)
-                .build();
+                .build(true);
         assertEquals(query, "SELECT * FROM sample_table WHERE col1 NOT IN ('10','20','30');");
     }
 
@@ -105,7 +105,7 @@ public class FilterTest {
                 .selectAll()
                 .fromTable("sample_table")
                 .filter("col1", EFilterCondition.EQUAL, 10, false)
-                .build();
+                .build(true);
         assertEquals(query, "SELECT * FROM sample_table WHERE col1 = 10;");
     }
 
@@ -115,7 +115,7 @@ public class FilterTest {
                 .selectAll()
                 .fromTable("sample_table")
                 .filterWithAlias("col1", "c1", EFilterCondition.EQUAL, 10, false)
-                .build();
+                .build(true);
         assertEquals(query, "SELECT * FROM sample_table WHERE c1.col1 = 10;");
     }
 
@@ -133,7 +133,7 @@ public class FilterTest {
                 .filter("col7", EFilterCondition.LESS_THAN_EQUAL, 40, false)
                 .filter("col8", EFilterCondition.LIKE, "text%", true)
                 .filter("col9", EFilterCondition.ILIKE, "text%", true)
-                .build();
+                .build(true);
 
         String expectedQuery = new StringBuilder()
                 .append("SELECT * FROM sample_table").append(' ')
@@ -163,7 +163,7 @@ public class FilterTest {
                 .or()
                 .filter("col1", EFilterCondition.EQUAL, 20, false)
                 .filter("col2", EFilterCondition.EQUAL, 30, false)
-                .build();
+                .build(true);
         assertEquals(query, "SELECT * FROM sample_table WHERE col1 = 10 OR col1 = 20 AND col2 = 30;");
     }
 
@@ -173,14 +173,14 @@ public class FilterTest {
                 .selectAll()
                 .fromTable("sample_table")
                 .filter("col1", EFilterCondition.EQUAL, "quot'ed stri''ng", true)
-                .build();
+                .build(true);
         assertEquals(query, "SELECT * FROM sample_table WHERE col1 = 'quot''ed stri''ng';");
 
         query = new SelectBuilder(context)
                 .selectAll()
                 .fromTable("sample_table")
                 .filter("col1", EFilterCondition.EQUAL, "quote at end'", true)
-                .build();
+                .build(true);
         assertEquals(query, "SELECT * FROM sample_table WHERE col1 = 'quote at end''';");
     }
 
@@ -195,7 +195,7 @@ public class FilterTest {
                         .addFilter("col3", EFilterCondition.LESS_THAN, 30, false)
                         .addFilter("col4", EFilterCondition.LIKE, "text%", true)
                         .anyOf())
-                .build();
+                .build(true);
         assertEquals(query, "SELECT * FROM sample_table WHERE col1 = 10 AND (col2 = 20 OR col3 < 30 OR col4 LIKE 'text%');");
     }
 
@@ -209,7 +209,7 @@ public class FilterTest {
                         .addFilterWithAlias("col2", "a2", EFilterCondition.EQUAL, 20, false)
                         .addFilterWithAlias("col3", "a3", EFilterCondition.EQUAL, 30, false)
                         .allOf())
-                .build();
+                .build(true);
         assertEquals(query, "SELECT * FROM sample_table WHERE (a1.col1 = 10 AND a2.col2 = 20 AND a3.col3 = 30);");
     }
 
@@ -224,7 +224,7 @@ public class FilterTest {
                         .addFilter("col3", EFilterCondition.LESS_THAN, 30, false)
                         .addFilter("col4", EFilterCondition.LIKE, "text%", true)
                         .allOf())
-                .build();
+                .build(true);
         assertEquals(query, "SELECT * FROM sample_table WHERE col1 = 10 AND (col2 = 20 AND col3 < 30 AND col4 LIKE 'text%');");
     }
 }

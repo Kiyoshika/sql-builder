@@ -14,17 +14,17 @@ public class CustomCastTest {
     public void selectAndCastToIntegerNoLength() throws SelectBuilderException {
         SQLContext ctx = new SQLContext(EDialect.POSTGRES); // same as: VERTICA
         String query = new SelectBuilder(ctx)
-                .selectAndCast("col1", new Custom(ctx, "CUSTOM"))
+                .selectAndCast("col1", new Custom("CUSTOM", false))
                 .fromTable("sample_table")
-                .build();
-        assertEquals(query, "SELECT col1::CUSTOM FROM sample_table;");
+                .build(true);
+        assertEquals(query, "SELECT CAST(col1 AS CUSTOM) FROM sample_table;");
 
         // need to rebuild the query due to different context
         ctx.setSqlDialect(EDialect.MSSQL);
         query = new SelectBuilder(ctx)
-                .selectAndCast("col1", new Custom(ctx, "CUSTOM"))
+                .selectAndCast("col1", new Custom("CUSTOM", false))
                 .fromTable("sample_table")
-                .build();
+                .build(true);
         assertEquals(query, "SELECT CAST(col1 AS CUSTOM) FROM sample_table;");
     }
 
@@ -32,17 +32,17 @@ public class CustomCastTest {
     public void selectAndCastWithAliasToIntegerNoLength() throws SelectBuilderException {
         SQLContext ctx = new SQLContext(EDialect.POSTGRES); // same as: VERTICA
         String query = new SelectBuilder(ctx)
-                .selectAndCastWithAlias("col1", "c1", new Custom(ctx, "CUSTOM"))
+                .selectAndCastWithAlias("col1", "c1", new Custom("CUSTOM", false))
                 .fromTable("sample_table")
-                .build();
-        assertEquals(query, "SELECT col1::CUSTOM AS c1 FROM sample_table;");
+                .build(true);
+        assertEquals(query, "SELECT CAST(col1 AS CUSTOM) AS c1 FROM sample_table;");
 
         // need to rebuild the query due to different context
         ctx.setSqlDialect(EDialect.MSSQL);
         query = new SelectBuilder(ctx)
-                .selectAndCastWithAlias("col1", "c1", new Custom(ctx, "CUSTOM"))
+                .selectAndCastWithAlias("col1", "c1", new Custom("CUSTOM", false))
                 .fromTable("sample_table")
-                .build();
+                .build(true);
         assertEquals(query, "SELECT CAST(col1 AS CUSTOM) AS c1 FROM sample_table;");
     }
 }

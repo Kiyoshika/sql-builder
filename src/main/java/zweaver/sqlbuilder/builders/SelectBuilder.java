@@ -32,6 +32,8 @@ public final class SelectBuilder {
         return this;
     }
 
+    public String getTableName() { return this.tableName; }
+
     public SelectBuilder fromTableWithAlias(String tableName, String alias) {
         this.tableName = new StringBuilder().append(tableName).append(" AS ").append(alias).toString();
         return this;
@@ -115,7 +117,7 @@ public final class SelectBuilder {
         return this;
     }
 
-    public String build() throws SelectBuilderException {
+    public String build(boolean isFinalStatement) throws SelectBuilderException {
         if (this.tableName == null || this.tableName.isEmpty())
             throw new SelectBuilderException("Table name can not be null or empty.");
 
@@ -151,7 +153,8 @@ public final class SelectBuilder {
             queryBuilder.append("LIMIT").append(' ').append(this.limitCount);
         }
 
-        queryBuilder.append(';');
+        if (isFinalStatement)
+            queryBuilder.append(';');
         return queryBuilder.toString();
     }
 

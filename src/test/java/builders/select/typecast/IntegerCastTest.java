@@ -16,7 +16,7 @@ public class IntegerCastTest {
         String query = new SelectBuilder(ctx)
                 .selectAndCast("col1", new Integer(ctx))
                 .fromTable("sample_table")
-                .build();
+                .build(true);
         assertEquals(query, "SELECT col1::CUSTOM FROM sample_table;");
 
         // need to rebuild the query due to different context
@@ -24,7 +24,7 @@ public class IntegerCastTest {
         query = new SelectBuilder(ctx)
                 .selectAndCast("col1", new Integer(ctx))
                 .fromTable("sample_table")
-                .build();
+                .build(true);
         assertEquals(query, "SELECT CAST(col1 AS CUSTOM) FROM sample_table;");
     }
 
@@ -34,7 +34,7 @@ public class IntegerCastTest {
         String query = new SelectBuilder(ctx)
                 .selectAndCastWithAlias("col1", "c1", new Integer(ctx))
                 .fromTable("sample_table")
-                .build();
+                .build(true);
         assertEquals(query, "SELECT col1::CUSTOM AS c1 FROM sample_table;");
 
         // need to rebuild the query due to different context
@@ -42,7 +42,7 @@ public class IntegerCastTest {
         query = new SelectBuilder(ctx)
                 .selectAndCastWithAlias("col1", "c1", new Integer(ctx))
                 .fromTable("sample_table")
-                .build();
+                .build(true);
         assertEquals(query, "SELECT CAST(col1 AS CUSTOM) AS c1 FROM sample_table;");
     }
 }
